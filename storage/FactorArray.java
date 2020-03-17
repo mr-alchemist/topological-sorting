@@ -67,8 +67,8 @@ public class FactorArray<T> implements IDynamicArray<T> {
 	public T remove(int index) {
 		if(index >= size())throw new IndexOutOfBoundsException();
 		T item = get(index);
-		if( array.length > 10  //Ú.Â. ‰ËÌ‡ÏË˜. Ï‡ÒÒË‚ Û‚ÂÎË˜Ë‚‡ÎÒˇ Í‡Í ÏËÌËÏÛÏ 1 ‡Á
-				&& lengthHist.peek() == (size() - 1))//‚ Ï‡ÒÒË‚ ÔÂ‰˚‰Û˘Â„Ó ‡ÁÏÂ‡ ÌÓ‚ÓÂ ÍÓÎË˜ÂÒÚ‚Ó ˝ÎÂÏÂÌÚÓ‚ "‚ÎÂÁÂÚ"
+		if( array.length > 10  //—Ç.–µ. –¥–∏–Ω–∞–º–∏—á. –º–∞—Å—Å–∏–≤ —É–≤–µ–ª–∏—á–∏–≤–∞–ª—Å—è –∫–∞–∫ –º–∏–Ω–∏–º—É–º 1 —Ä–∞–∑
+				&& lengthHist.peek() == (size() - 1))//–≤ –º–∞—Å—Å–∏–≤ –ø—Ä–µ–¥—ã–¥—É—â–µ–≥–æ —Ä–∞–∑–º–µ—Ä–∞ –Ω–æ–≤–æ–µ –∫–æ–ª–∏—á–µ—Å—Ç–≤–æ —ç–ª–µ–º–µ–Ω—Ç–æ–≤ "–≤–ª–µ–∑–µ—Ç"
 			resize_minus(index);
 		
 		else {

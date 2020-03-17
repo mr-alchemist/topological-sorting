@@ -31,8 +31,8 @@ public class Program {
 		};
 		
 		int[][] matrix = getMatrixByVectorDirected(vector);
-		int[][] demLevels = demukron(matrix);//используем алгоритм Демукрона
-		int[] tarjanRes = tarjan(vector);//алгоритм Тарьяна
+		int[][] demLevels = demukron(matrix);//РёСЃРїРѕР»СЊР·СѓРµРј Р°Р»РіРѕСЂРёС‚Рј Р”РµРјСѓРєСЂРѕРЅР°
+		int[] tarjanRes = tarjan(vector);//Р°Р»РіРѕСЂРёС‚Рј РўР°СЂСЊСЏРЅР°
 		
 		
 		System.out.println("Demucron:");
@@ -69,7 +69,7 @@ public class Program {
 		boolean[] deleted = new boolean[N];
 		Arrays.fill(deleted, false);
 		int[] sIn = new int[N];
-		for(int i = 0; i < N; i++) {//перебор столбцов матрицы
+		for(int i = 0; i < N; i++) {//РїРµСЂРµР±РѕСЂ СЃС‚РѕР»Р±С†РѕРІ РјР°С‚СЂРёС†С‹
 			int s = 0;
 			for(int j = 0; j < N; j++) {
 				s+= matrix[j][i];
@@ -90,15 +90,15 @@ public class Program {
 				}
 			}
 			
-			for(int i = 0; i < curLevel.size(); i++) {//"вычитаем" из sIn строки матрицы, соответствующие вершинам текущего уровня
+			for(int i = 0; i < curLevel.size(); i++) {//"РІС‹С‡РёС‚Р°РµРј" РёР· sIn СЃС‚СЂРѕРєРё РјР°С‚СЂРёС†С‹, СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёРµ РІРµСЂС€РёРЅР°Рј С‚РµРєСѓС‰РµРіРѕ СѓСЂРѕРІРЅСЏ
 				int v = curLevel.get(i);
-				for(int j = 0; j < N ; j++) {//идем по "столбцам"
+				for(int j = 0; j < N ; j++) {//РёРґРµРј РїРѕ "СЃС‚РѕР»Р±С†Р°Рј"
 					sIn[j] -= matrix[v][j];
 				}
 			}
 		}
 		
-		//преобразуем результат типа FactorArray<FactorArray<Integer>> в int[][]
+		//РїСЂРµРѕР±СЂР°Р·СѓРµРј СЂРµР·СѓР»СЊС‚Р°С‚ С‚РёРїР° FactorArray<FactorArray<Integer>> РІ int[][]
 		int maxLevelSize = 0;
 		for(int i = 0;i < faLevels.size();i++) {
 			int curSize = faLevels.get(i).size();
@@ -145,7 +145,7 @@ public class Program {
 				DFS(w, vector, visited, order);
 		}
 		//System.out.println(u);
-		order.add(u);//вершина u добавляется в список order(т.е. закрашивается чёрным) только после того, когда обработаны (закрашены чёрным) все зависимые от неё вершины
+		order.add(u);//РІРµСЂС€РёРЅР° u РґРѕР±Р°РІР»СЏРµС‚СЃСЏ РІ СЃРїРёСЃРѕРє order(С‚.Рµ. Р·Р°РєСЂР°С€РёРІР°РµС‚СЃСЏ С‡С‘СЂРЅС‹Рј) С‚РѕР»СЊРєРѕ РїРѕСЃР»Рµ С‚РѕРіРѕ, РєРѕРіРґР° РѕР±СЂР°Р±РѕС‚Р°РЅС‹ (Р·Р°РєСЂР°С€РµРЅС‹ С‡С‘СЂРЅС‹Рј) РІСЃРµ Р·Р°РІРёСЃРёРјС‹Рµ РѕС‚ РЅРµС‘ РІРµСЂС€РёРЅС‹
 	}
 
 }
